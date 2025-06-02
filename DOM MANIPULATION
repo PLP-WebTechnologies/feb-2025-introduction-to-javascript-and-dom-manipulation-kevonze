@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Manipulation</title>
+    <style>
+        .highlight {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Welcome to JavaScript DOM Manipulation</h1>
+    <p id="text">Click the button to change this text.</p>
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="toggleElement()">Toggle Element</button>
+    <button onclick="changeStyle()">Change Style</button>
+    <div id="toggleDiv">This element can be removed or added!</div>
+    <script src="script.js"></script>
+</body>
+</html>
+// Change text content dynamically
+function changeText() {
+    document.getElementById("text").textContent = "The text has been successfully changed!";
+}
+
+// Modify CSS styles via JavaScript
+function changeStyle() {
+    let title = document.getElementById("title");
+    title.classList.toggle("highlight");
+}
+
+// Add or remove an element when a button is clicked
+function toggleElement() {
+    let div = document.getElementById("toggleDiv");
+    if (div) {
+        div.remove();
+    } else {
+        let newDiv = document.createElement("div");
+        newDiv.id = "toggleDiv";
+        newDiv.textContent = "This element can be removed or added!";
+        document.body.appendChild(newDiv);
+    }
+}
